@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impact DC | Community Needs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            /* USA Theme Palette */
+            --primary-blue: #002868;
+            --primary-red: #BF0A30;
+            --bg-light: #ffffff;
+            --bg-alt: #f4f6f9;
+            --text-dark: #222222;
+            --text-muted: #444444;
+            --border-color: #dddddd;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-alt);
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        /* Top Master Tabs */
+        .master-tabs {
+            display: flex;
+            background-color: var(--primary-blue);
+            padding: 0 20px;
+        }
+
+        .master-tab-btn {
+            background: none;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s, border-bottom 0.3s;
+            border-bottom: 4px solid transparent;
+        }
+
+        .master-tab-btn.active {
+            opacity: 1;
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        /* Main Header */
+        header {
+            background-color: var(--bg-light);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        header h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 3rem;
+            color: var(--primary-blue);
+            margin: 0 0 10px 0;
+        }
+
+        .authors {
+            font-size: 1.1rem;
+            color: var(--primary-red);
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro-summary {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Sticky Section Navigation */
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 2px solid var(--primary-red);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 15px;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .sticky-nav a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sticky-nav a:hover {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* Content Sections */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-block {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 40px 50px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        .section-block h2 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-blue);
+            font-size: 2.2rem;
+            margin-top: 0;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        h3 {
+            color: var(--primary-red);
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        /* Bullet List Styling */
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullet-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+            color: var(--text-muted);
+        }
+
+        .bullet-list li::before {
+            content: "■";
+            color: var(--primary-red);
+            font-size: 0.8em;
+            position: absolute;
+            left: 0;
+            top: 3px;
+        }
+
+        .bullet-list strong {
+            color: var(--primary-blue);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .grid-logos {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Images */
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .feature-img {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .logo-img {
+            max-height: 70px;
+            object-fit: contain;
+        }
+
+        /* Citations */
+        .citation {
+            color: var(--primary-red);
+            text-decoration: none;
+            font-size: 0.85rem;
+            vertical-align: super;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .citation:hover { text-decoration: underline; }
+
+        /* Sources Tab Content */
+        .works-cited {
+            list-style: none;
+            padding: 0;
+        }
+
+        .works-cited li {
+            background: var(--bg-light);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-blue);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .works-cited li a {
+            color: var(--primary-blue);
+            word-break: break-all;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* View Toggling */
+        #report-view, #sources-view {
+            display: none;
+        }
+
+        #report-view.active, #sources-view.active {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="master-tabs">
+        <button class="master-tab-btn active" onclick="toggleView('report')">Community Needs Report</button>
+        <button class="master-tab-btn" onclick="toggleView('sources')">Works Cited</button>
+    </div>
+
+    <div id="report-view" class="active">
+        <header>
+            <h1>Impact DC</h1>
+            <div class="authors">By Abagael Hicks & Sean Pelillo</div>
+            <p class="intro-summary">
+                This report explores critical, shared community needs identified in both <strong>Washington, D.C.</strong> and <strong>Wilmington, DE</strong>. The following data focuses exclusively on the District of Columbia, highlighting severe gaps in Housing, Employment, and Food Security, alongside the corporate partnerships working to bridge them.
+            </p>
+        </header>
+
+        <nav class="sticky-nav">
+            <a href="#housing">Housing & Homelessness</a>
+            <a href="#employment">Employment</a>
+            <a href="#food">Food Insecurity</a>
+        </nav>
+
+        <div class="container">
+            
+            <section id="housing" class="section-block fade-in">
+                <h2>Homelessness & Affordable Housing</h2>
+                <div class="grid-2">
+                    <div>
+                        <ul class="bullet-list">
+                            <li><strong>The Crisis:</strong> Over 5,000 residents are currently displaced as of the 2025 Point-in-Time (PIT) audit <a class="citation" onclick="jumpToSource('src1')">[1]</a>.</li>
+                            <li><strong>Key Drivers:</strong> Extreme weather vulnerability and rapidly rising affordability gaps <a class="citation" onclick="jumpToSource('src4')">[4]</a>.</li>
+                        </ul>
+                        
+                        <h3>United Way NCA (Lead Agency)</h3>
+                        <ul class="bullet-list">
+                            <li>Improves resource allocation for local shelters.</li>
+                            <li>Provides critical childcare for displaced mothers via the <em>Women United</em> program <a class="citation" onclick="jumpToSource('src3')">[3]</a>.</li>
+                        </ul>
+                        
+                        <h3>Amazon (Corporate Partner)</h3>
+                        <ul class="bullet-list">
+                            <li>Injects direct capital via the <strong>Housing Equity Fund</strong> to preserve transit-adjacent affordable units.</li>
+                            <li>Supplies volunteer manpower for "Right Start" supply drives.</li>
+                        </ul>
+                        
+                        <div class="grid-logos">
+                            <img src="united-way.webp" alt="United Way Logo" class="logo-img">
+                            <img src="amazon-logo.png" alt="Amazon Logo" class="logo-img">
+                        </div>
+                    </div>
+                    <div>
+                        <img src="DC-popdensity.webp" alt="DC Population Density Map" class="feature-img">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); text-align: center; margin-top: 10px;">Visualizing population density to identify transit-oriented housing needs.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="employment" class="section-block fade-in">
+                <h2>Employment Challenges</h2>
+                <div class="grid-2">
+                    <div>
+                        <img src="priv-public-sectorjobs.webp" alt="Private vs Public Sector Jobs Chart" class="feature-img">
+                    </div>
+                    <div>
+                        <ul class="bullet-list">
+                            <li><strong>The Crisis:</strong> D.C. hit a national high 6% unemployment rate in August following mass federal layoffs <a class="citation" onclick="jumpToSource('src6')">[6]</a>.</li>
+                            <li><strong>Key Drivers:</strong> Over-reliance on public sector roles, which account for 22.9% of all local jobs <a class="citation" onclick="jumpToSource('src5')">[5]</a>.</li>
+                        </ul>
+                        
+                        <h3>Jubilee Jobs (Lead Agency)</h3>
+                        <ul class="bullet-list">
+                            <li>Guides underserved communities through career counseling and transition services <a class="citation" onclick="jumpToSource('src7')">[7]</a>.</li>
+                        </ul>
+                        
+                        <h3>Marriott International (Corporate Partner)</h3>
+                        <ul class="bullet-list">
+                            <li>Builds direct hiring pipelines to shift laid-off public workers into private hospitality.</li>
+                            <li>Hosts expert-led HR workshops for resume building and interview prep.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="food" class="section-block fade-in">
+                <h2>Food Insecurity</h2>
+                <div class="grid-2">
+                    <div>
+                        <ul class="bullet-list">
+                            <li><strong>The Crisis:</strong> 36% of DMV area households (over 800,000 people) experienced food insecurity in 2025 <a class="citation" onclick="jumpToSource('src8')">[8]</a>.</li>
+                            <li><strong>Key Drivers:</strong> Local food pantries are inundated with requests and lack the donations to meet demand <a class="citation" onclick="jumpToSource('src9')">[9]</a>.</li>
+                        </ul>
+                        
+                        <h3>D.C. Hunger Solutions (Lead Agency)</h3>
+                        <ul class="bullet-list">
+                            <li>Directs food donations to high-need areas.</li>
+                            <li>Drives aggressive policy activism targeting the mayor and Congress <a class="citation" onclick="jumpToSource('src10')">[10]</a>.</li>
+                        </ul>
+                        
+                        <h3>Giant Food (Corporate Partner)</h3>
+                        <ul class="bullet-list">
+                            <li>Generates liquid funding via point-of-sale "round up" campaigns at registers.</li>
+                            <li>Executes daily corporate food rescue operations to divert perishable goods to local pantries.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="food-insecurity.png" alt="DMV Food Insecurity Map" class="feature-img">
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div id="sources-view">
+        <header style="padding: 40px 20px;">
+            <h1>Works Cited & Data Sources</h1>
+        </header>
+        <div class="container">
+            <ul class="works-cited">
+                <li id="src1">
+                    <strong>[1]</strong> Metropolitan Washington Council of Governments. (2025). <em>Point-in-Time (PIT) Report Combined Metro DC</em>.
+                </li>
+                <li id="src3">
+                    <strong>[3]</strong> United Way Worldwide. (n.d.). <em>Women United: United Way of the National Capital Area</em>. <br>
+                    <a href="https://unitedwaynca.org/women-united/" target="_blank">https://unitedwaynca.org/women-united/</a>
+                </li>
+                <li id="src4">
+                    <strong>[4]</strong> Urban Institute. (2025). <em>The DC Area Has an Affordability Problem, and Disruptions to Nonprofits' Government Funding Could Worsen It</em>.
+                </li>
+                <li id="src5">
+                    <strong>[5]</strong> Community Needs Display. (2025). <em>Employment Challenges: Identifying Need</em>. Presentation Slide 6.
+                </li>
+                <li id="src6">
+                    <strong>[6]</strong> Associated Press (AP News). (2025). <em>DC job market battered by federal job cuts: report</em>.
+                </li>
+                <li id="src7">
+                    <strong>[7]</strong> Jubilee Jobs / Community Services Agency of the Metropolitan Washington Council AFL-CIO. (n.d.). <em>Workforce Development</em>.
+                </li>
+                <li id="src8">
+                    <strong>[8]</strong> CNN Politics. (2025). <em>Severe food insecurity is on the rise in DC area, new report says, after administration's federal cuts</em>.
+                </li>
+                <li id="src9">
+                    <strong>[9]</strong> Feeding America. (n.d.). <em>Volunteer Opportunities at Your Local Food Bank</em>.
+                </li>
+                <li id="src10">
+                    <strong>[10]</strong> D.C. Hunger Solutions. (n.d.). <em>Take Action - DC Hunger Solutions</em>. <br>
+                    <a href="https://www.dchunger.org/take-action/" target="_blank">https://www.dchunger.org/take-action/</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Tab Toggling Logic
+        function toggleView(viewName) {
+            const reportView = document.getElementById('report-view');
+            const sourcesView = document.getElementById('sources-view');
+            const btns = document.querySelectorAll('.master-tab-btn');
+
+            btns.forEach(btn => btn.classList.remove('active'));
+
+            if (viewName === 'report') {
+                reportView.classList.add('active');
+                sourcesView.classList.remove('active');
+                btns[0].classList.add('active');
+            } else {
+                reportView.classList.remove('active');
+                sourcesView.classList.add('active');
+                btns[1].classList.add('active');
+                window.scrollTo(0, 0);
+            }
+        }
+
+        // Cross-linking to sources
+        function jumpToSource(srcId) {
+            toggleView('sources');
+            setTimeout(() => {
+                const element = document.getElementById(srcId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    // Highlight effect
+                    const originalBg = element.style.backgroundColor;
+                    element.style.backgroundColor = '#e8f0fe';
+                    setTimeout(() => {
+                        element.style.backgroundColor = originalBg;
+                    }, 2000);
+                }
+            }, 100);
+        }
+
+        // Intersection Observer for scroll animations
+        document.addEventListener("DOMContentLoaded", function() {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const fadeElements = document.querySelectorAll('.fade-in');
+            fadeElements.forEach(el => observer.observe(el));
+        });
+    </script>
+
+</body>
+</html>
